@@ -1,0 +1,6 @@
+{
+  "name": "WebRTC-Conference",
+  "tagline": "Conferencing tool using WebRTC.",
+  "body": "#WebRTC-Conference\r\n\r\nWebRTC-Conference is a progressive web application which provides users participating in a conference the ability to listen to a session done in a foreign language, in a language familiar to the user, by tuning into a channel which broadcasts the same session in the language of your choice.\r\n\r\n\r\n\r\n### Setup\r\n\r\n##### Prerequisites\r\n\r\nInstall [polymer-cli](https://github.com/Polymer/polymer-cli):\r\n\r\n    npm install -g polymer-cli\r\n\r\n    bower install\r\n\r\n### Start the development server\r\n\r\nThis command serves the app at `http://localhost:8080` and provides basic URL\r\nrouting for the app:\r\n\r\n    polymer serve --open\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}

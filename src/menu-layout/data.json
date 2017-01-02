@@ -1,0 +1,36 @@
+{ 
+  "status":"success",
+  "NumOfLans" : 4,
+  "ConferenceName" : "Sustainable Wetlands Development", 
+  "data": 
+    { "channels": [ 
+          { "name": "channel-1", 
+            "Language": "English",
+            "flagImgURL":"../images/English.png",
+            "audio":"../../audios/en.mp3",
+            "content1": "In the past, the value of natural wetlands has not been fully recognised. Wetlands are vital parts of a watershed. Loss and degradation not only affects the existence and health of an individual wetland and causes local suffering, but also affects the ecosystem as a whole and can contribute to regional and even global environmental problems.",
+            "content2": "Thailand has various types of vast wetland areas including over fifty major rivers and their tributaries, riparian zones, flood plains and flooded forests. There are over 8000 freshwater swamps and marshes, lakes, ponds, estuaries, mudflats and deltas. Along Thailand's 2,614 km of coastline are found coastal zones, mangroves, peatlands, beaches, coral reefs and seagrass beds. Thailand also has over 2000 man-made water storage ponds and reservoirs, rice paddies, fish ponds, shrimp ponds, saltpans and coastal aquaculture areas. The welfare of the Thai people, and of the country itself, is greatly dependent upon these productive wetland ecosystems." },
+
+          { "name": "channel-2", 
+            "Language": "German",
+            "flagImgURL":"../images/German.png",
+            "audio":"../../audios/ge.mp3",
+            "content1": "In der Vergangenheit wurde der Wert der natürlichen Feuchtgebiete nicht vollständig erkannt. Feuchtgebiete sind wichtige Teile einer Wasserscheide. Verlust und Erniedrigung beeinflussen nicht nur die Existenz und Gesundheit eines einzelnen Feuchtgebiets und verursachen lokales Leiden, sondern wirken sich auch auf das Ökosystem als Ganzes aus und können zu regionalen und sogar globalen Umweltproblemen beitragen.",
+            "content2": "Thailand hat verschiedene Arten von ausgedehnten Feuchtgebieten, darunter über fünfzig große Flüsse und ihre Nebenflüsse, Uferzonen, Überschwemmungsgebiete und überschwemmte Wälder. Es gibt über 8000 Süßwassersümpfe und Sümpfe, Seen, Teiche, Flussmündungen, Watt und Deltas. Entlang der 2.614 km langen Küstenlinie Thailands befinden sich Küstengebiete, Mangroven, Moore, Strände, Korallenriffe und Seegrasbetten. Thailand hat auch über 2000 künstliche Wasserspeicher Teiche und Stauseen, Reisfelder, Fischteiche, Garnelen Teiche, Salinen und küstennahen Aquakulturgebieten. Das Wohlergehen des thailändischen Volkes und des Landes selbst ist stark abhängig von diesen produktiven Feuchtgebietsökosystemen." },
+
+          { "name": "channel-3", 
+            "Language": "French",
+            "flagImgURL":"../images/French.png",
+            "audio":"../../audios/fr.mp3",
+            "content1":"Dans le passé, la valeur des terres humides naturelles n'a pas été pleinement reconnue. Les milieux humides sont des parties vitales d'un bassin hydrographique. La perte et la dégradation affectent non seulement l'existence et la santé d'une zone humide et causent des souffrances locales, mais affectent aussi l'ensemble de l'écosystème et peuvent contribuer aux problèmes environnementaux régionaux et mondiaux.",
+            "content2":"La Thaïlande possède divers types de vastes zones humides, dont plus de cinquante grands fleuves et leurs affluents, les zones riveraines, les plaines inondables et les forêts inondées. Il ya plus de 8000 marécages d'eau douce et marais, lacs, étangs, estuaires, vasières et deltas. Le long des 2 614 km de côtes de la Thaïlande se trouvent des zones côtières, des mangroves, des tourbières, des plages, des récifs coralliens et des herbiers marins. La Thaïlande dispose également de plus de 2 000 bassins et réservoirs de stockage d'eau fabriqués par l'homme, de rizières, d'étangs de poissons, d'étangs de crevettes, de salins et d'aquaculture côtière. Le bien-être du peuple thaïlandais et du pays lui-même dépend grandement de ces écosystèmes de zones humides productifs." },
+
+          { "name": "channel-4", 
+            "Language": "Spanish",
+            "flagImgURL":"../images/Spanish.png",
+            "audio":"../../audios/sp.mp3",
+            "content1":"En el pasado, el valor de los humedales naturales no ha sido plenamente reconocido. Los humedales son partes vitales de una cuenca hidrográfica. La pérdida y degradación no sólo afecta a la existencia y salud de un humedal individual y causa sufrimiento local, sino que también afecta al ecosistema en su conjunto y puede contribuir a problemas ambientales regionales e incluso globales.",
+            "content2": "Tailandia tiene varios tipos de vastas zonas de humedales, incluyendo más de cincuenta grandes ríos y sus afluentes, zonas ribereñas, llanuras de inundación y bosques inundados. Hay más de 8000 pantanos de agua dulce y pantanos, lagos, estanques, estuarios, lodazales y deltas. A lo largo de los 2,614 km de costa de Tailandia se encuentran zonas costeras, manglares, turberas, playas, arrecifes de coral y praderas marinas. Tailandia también cuenta con más de 2000 estanques artificiales de almacenamiento de agua y embalses, arrozales, estanques de peces, estanques de camarón, salinas y áreas acuícolas costeras. El bienestar del pueblo tailandés y del propio país depende en gran medida de estos ecosistemas productivos de humedales." } 
+      ] 
+    } 
+}

@@ -1,0 +1,87 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-audio-player/paper-audio-player.html">
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+<dom-module id="channel-view">
+  <!-- Defines the element's style and local DOM -->
+  <template>
+    <style>
+      :host {
+        display: block;
+        padding: 16px;
+      }
+      .center{
+        margin: 5% 10%;
+        width: 80%;
+        font-family: Calibri;
+      }
+      #header{
+        font-weight: bold;
+        font-size: 25px;
+        font-family: Calibri;
+        background: #f4bc42;
+        padding: 15px;
+      }
+      #content{
+        margin:15px;
+      }
+    </style>
+    <paper-card class="center">
+      <div id="header">Conference Name:</div>
+      <div id="content">
+        <paper-audio-player id="audio"></paper-audio-player>
+        <h3>Click Play to tune in</h3> 
+        <h1>SUMMARY: </h1>
+        <p id="contentParagraph">The content goes here</p>
+        <paper-button raised on-tap="back">Back</paper-button>
+      </div>
+
+    </paper-card>
+  </template>
+  <!-- Creates the element's prototype and registers it -->
+  <script>
+    Polymer({
+      is: 'channel-view',
+      back:function(){
+        console.log("BACK BUTTON PRESSED!");
+        var page = document.getElementById("pageIndex");
+        page.selected=1;
+        // Stop playing the audio when pressed back
+        this.$.audio.$.audio.pause();
+      },
+      properties:{
+        name: {
+          type:String,
+          observer: '_nameChanged'
+        },
+        language: String,
+        content: {
+          type: String,
+          reflectToAttribute: true,
+          observer: '_valueChanged'
+        },
+        audioSRC:{
+          type:String,
+          //observer: '_nameChanged'
+        }
+      },
+      _valueChanged: function(value) {
+        console.log("content data is changed!")
+        this.$.contentParagraph.innerHTML = this.content;
+      },
+      _nameChanged:function(value){
+        console.log("NAME CHANGED!")
+        this.$.audio.src=this.name;
+        var header = this.$.header;
+
+        $.getJSON('src/menu-layout/data.json',function(data){
+          console.log("The data is: " + data.ConferenceName);
+          header.innerHTML = "Conference Name: " + data.ConferenceName;
+        })
+      }
+    });
+  </script>
+</dom-module>

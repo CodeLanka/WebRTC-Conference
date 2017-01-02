@@ -1,0 +1,126 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="channel-view.html">
+<link rel="import" href="intro-view.html">
+<link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+
+<dom-module id="menu-layout">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      .centerer{
+        margin: 5% 25%;
+        width: 50%;
+      }
+      #channellistmenu{
+        width: 100%;
+      }
+      #CName{
+        font-weight: bold;
+        font-size: 25px;
+        font-family: Calibri;
+        background: #f4bc42;
+      }
+      #lool{
+        align-items: center;
+        font-family: Calibri;
+        font-size: 20px;
+        margin: 25px 35px;
+      }
+      #joinButton{
+        font-family: Calibri;
+        font-weight: bold;
+        width: 100%;
+        text-align: center;
+      }
+      .card-actions{
+        margin: 0px 25%;
+      }
+      .list-element:hover{
+        cursor: pointer;
+      }
+      #joinButton {
+        background: #e5e8a2;
+        color: black;
+      }
+      #joinButton:hover {
+        background: #f7be54;
+      }
+    </style>
+
+    <iron-pages selected="0" id="pageIndex">
+      <div>
+        <intro-view></intro-view>
+      </div>
+      <div class="centerer">
+        <paper-card id="channellistmenu">
+          <div class="card-content" id="CName">Conference Name</div>
+          <div id="channel-lists">
+            <paper-menu selected="0" id="lool">
+            </paper-menu>
+          </div>
+          <div class="card-actions">
+            <paper-button id="joinButton" on-tap="join">Join</paper-button>
+          </div>
+        </paper-card>
+      </div>
+      <div>
+        <channel-view id="pageTwo">
+        </channel-view>
+      </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'menu-layout',
+      join:function(){
+        console.log("Successfully registered this event listener for the join button")
+        var page = this.$.pageIndex;
+        var view = this.$.pageTwo;
+        var languageSelected = this.$.lool;
+        var languageIndex = languageSelected.selected;
+        
+
+        // Get the data from data.json
+        $.getJSON('src/menu-layout/data.json',function(data){
+          /*Insert the data for the channel-view here*/
+          view.setAttribute("name",data.data.channels[languageIndex].audio);
+          //view.setAttribute("name",data.ConferenceName);
+          view.setAttribute("language",data.data.channels[languageIndex].Language);
+          view.setAttribute("content",
+            data.data.channels[languageIndex].content1+'<br>'+'<br>'+data.data.channels[languageIndex].content2);
+        })
+        // Switch to the channel-view page
+        page.selected = 2;
+      },
+      properties: {
+      },
+      ready: function() {
+        var header_name = this.$.CName;
+        var menu = this.$.lool;
+        var numOfChannels = 0;
+        $.getJSON('src/menu-layout/data.json',function(data){
+          console.log("The data is: " + data.ConferenceName);
+          /*Bind all the data here*/
+          header_name.innerHTML = "Conference Name: " + data.ConferenceName;
+          numOfChannels = data.NumOfLans;
+          console.log("Num of channels: " + numOfChannels)
+          for(i=0; i< numOfChannels ;i++){
+            //this.$.paper-menu-list.appendChild(customElement);
+            var newEl = document.createElement( 'paper-item' );
+            newEl.className = "list-element";
+            newEl.innerHTML=(i+1)+'. '+data.data.channels[i].Language+'<br>';
+            Polymer.dom( menu).appendChild( newEl );
+          }
+        })
+      }
+    });
+  </script>
+</dom-module>

@@ -1,0 +1,7 @@
+{
+  "name": "Channel-list",
+  "short_name": "Channel-list",
+  "description": "This is a menu button designed for Web-RTC Conference",
+  "start_url": "/",
+  "display": "standalone"
+}

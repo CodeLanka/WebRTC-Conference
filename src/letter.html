@@ -1,0 +1,26 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="letter-element" atterbutes="id">
+  <template>
+    <style include="shared-styles">
+      .letter {
+          color: var(--main-color);
+          font-weight: 100;
+          font-size: 25px;
+          float: left;
+          width: 100%;
+          text-align: left;
+          padding-top: 10px;
+      }
+    </style>
+    <a class="letter">{{id}}</a>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'letter-element'
+    });
+  </script>
+</dom-module>
+

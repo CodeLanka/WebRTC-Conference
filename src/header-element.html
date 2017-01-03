@@ -1,0 +1,42 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="header-element" atterbutes="conference">
+  <template>
+    <style include="shared-styles">
+            
+      header {
+          width: 100%;
+          padding: 20px 0 20px 0;
+          background: #2d2d2d;
+          text-align: center;
+      }
+
+      #conference {
+          color: white;
+          font-size: 80px;
+          font-weight: 300;
+          margin-left: 20px;
+          color: var(--main-color);
+      }
+
+      #channelList {
+          color: white;
+          margin-left: 20px;
+          font-size: 40px;
+          font-weight: 200;
+          font-style: italic;
+      }
+    </style>
+      <header>
+          <span id="conference">{{conference}}</span><br>
+          <span id="channelList">Channel List</span>
+      </header>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'header-element'
+    });
+  </script>
+</dom-module>

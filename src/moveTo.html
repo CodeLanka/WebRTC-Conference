@@ -1,0 +1,41 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="moveTo-element" atterbutes="link">
+  <template>
+    <style include="shared-styles">
+        .moveTo {
+            height: 40px;
+            width: 40px;
+            float: left;    
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 300ms;
+        }
+
+        .moveTo:hover {
+            background: rgb(233,233,233);
+            cursor: pointer;
+        }
+
+        .moveTo:hover a {color: #4CAF50;}
+
+        .moveTo a {
+          text-decoration: none;
+          color: black;
+        }
+    </style>
+    <div class="moveTo" on-click="clickT">{{link}}</div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'moveTo-element',
+      clickT: function (e) {
+        document.getElementById(this.link).scrollIntoView();
+      }
+    });
+  </script>
+</dom-module>
+

@@ -1,0 +1,56 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="channel-element" atterbutes="title description">
+  <template>
+    <style include="shared-styles">
+      .channel {
+          height: 20px;
+          width: 100%;
+          clear: both;
+          padding: 2px 0 2px 0;
+          margin: 2px 0 2px 0;
+          border: 1px;
+          border-style: dotted;
+          border-color: transparent;
+      }
+
+      .channel:hover {
+          border-bottom: 1px dotted gray;
+          border-top: 1px dotted gray;
+          cursor: pointer;
+      }
+
+      .channelTitle {
+          font-weight: 300;
+          color: black;
+          font-size: 18px;
+          padding: 0 10px 0 20px;
+          float: left;
+          border-right: 1px dotted gray;
+          color: #2d2d2d;
+      }
+
+      .channelText {
+          margin-left: 10px;
+          font-style: italic;
+          font-weight: 100;
+          color: black;
+          font-size: 16px;
+          float: left;
+          margin-top:1px;
+      }
+    </style>
+    <div class="channel">
+      <div class="channelTitle">{{title}}</div>
+      <div class="channelText">{{description}}</div>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'channel-element'
+    });
+  </script>
+</dom-module>
+

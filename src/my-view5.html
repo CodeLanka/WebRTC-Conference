@@ -1,0 +1,120 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-icons/av-icons.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-icons/av-icons.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/paper-menu-button/paper-menu-button.html">
+<script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+<link rel="import" href="../bower_components/paper-audio-player/paper-audio-player.html">
+<link rel="import" href="shared-styles.html">
+
+
+
+<dom-module id="my-view5">
+    <template>
+    <style type="text/css">
+      .card {
+        margin: 24px;
+        padding: 16px;
+        color: #757575;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+      }
+      h1 {
+        margin: 16px 0;
+        color: #212121;
+        font-size: 22px;
+      }
+      table {
+        text-align: left;
+      }
+      th {
+        padding-right: 20px;
+        font-weight: normal;
+      }
+      .channel {
+        width: 420px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      paper-button {
+        vertical-align: top;
+      }
+
+      .mic {
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      audio {
+        margin-bottom: 20px;
+      }
+    </style>
+    <div class="card">
+    <script>
+      
+    </script>
+          <div class="channel">
+            <img src="../mic.png" class="mic" alt="mic_icon">
+            <h1>You are currently connected to channel #<span id="name">{{route.path}}</span><br></h1>
+            <audio controls><source src=""></audio><br>
+            <span id="muteButton"><paper-button id="mute" on-tap="mute" raised><span id="muteText"><iron-icon icon="av:volume-off"></iron-icon>mute</span></paper-button></span>
+            <paper-button id="leave" on-tap="leave" raised class="custom red"><iron-icon icon="icons:exit-to-app" ></iron-icon>Leave</paper-button>
+          </div>
+      </div>
+
+      <style is="custom-style">
+        paper-button.red {
+          background-color: red;
+          color: white;
+        }
+      </style>
+  </template>
+  <script>
+    Polymer({
+      is: 'my-view5',
+      ready: function() {
+        var currentChannel = this.$.name.textContent;
+        currentChannel = parseInt(currentChannel.replace('/','')) + 1;
+        this.$.name.textContent = currentChannel;
+      },
+
+      leave: function() {
+        window.location = "../view4/"
+      },
+
+      mute: function() {
+
+        console.log("mute function");
+
+        if(this.$.muteText.innerHTML == '<iron-icon icon="av:volume-off"></iron-icon>mute') {
+          this.$.muteText.innerHTML = '<iron-icon icon="av:volume-up"></iron-icon>unmute';
+
+          //MUTE CHANNEL
+
+        } else if (this.$.muteText.innerHTML == '<iron-icon icon="av:volume-up"></iron-icon>unmute'){
+          this.$.muteText.innerHTML = '<iron-icon icon="av:volume-off"></iron-icon>mute';
+
+
+          //UNMUTE CHANNEL
+
+        }
+      }
+    });
+  </script>
+
+</dom-module>

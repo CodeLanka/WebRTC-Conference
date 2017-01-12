@@ -15,7 +15,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/paper-menu-button/paper-menu-button.html">
-<script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+<!--<script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>-->
 <link rel="import" href="../bower_components/paper-audio-player/paper-audio-player.html">
 <link rel="import" href="shared-styles.html">
 
@@ -65,14 +65,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </style>
     <div class="card">
-    <script>
-      
-    </script>
           <div class="channel">
             <img src="../mic.png" class="mic" alt="mic_icon">
             <h1>You are currently connected to channel #<span id="name">{{route.path}}</span><br></h1>
-            <audio controls><source src=""></audio><br>
-            <span id="muteButton"><paper-button id="mute" on-tap="mute" raised><span id="muteText"><iron-icon icon="av:volume-off"></iron-icon>mute</span></paper-button></span>
+            <audio controls><source src="testtt.mp3"></audio><br>
+            <span id="muteButton"><paper-button id="mute" on-tap="mute" raised><span id="muteText"><iron-icon icon="av:volume-up"></iron-icon>mute</span></paper-button></span>
             <paper-button id="leave" on-tap="leave" raised class="custom red"><iron-icon icon="icons:exit-to-app" ></iron-icon>Leave</paper-button>
           </div>
       </div>
@@ -84,37 +81,34 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
       </style>
   </template>
-  <script>
-    Polymer({
-      is: 'my-view5',
-      ready: function() {
-        var currentChannel = this.$.name.textContent;
-        currentChannel = parseInt(currentChannel.replace('/','')) + 1;
-        this.$.name.textContent = currentChannel;
-      },
+    <script>
+        Polymer({
+            is: 'my-view5',
+            ready: function() {
+                var currentChannel = this.$.name.textContent;
+                currentChannel = parseInt(currentChannel.replace('/', '')) + 1;
+                this.$.name.textContent = currentChannel;
+            },
 
-      leave: function() {
-        window.location = "../view4/"
-      },
+            leave: function() {
+                window.location = "../view4/"
+            },
 
-      mute: function() {
+            mute: function() {
 
-        console.log("mute function");
+                console.log("mute function");
 
-        if(this.$.muteText.innerHTML == '<iron-icon icon="av:volume-off"></iron-icon>mute') {
-          this.$.muteText.innerHTML = '<iron-icon icon="av:volume-up"></iron-icon>unmute';
+                if (this.$.muteText.innerHTML == '<iron-icon icon="av:volume-off"></iron-icon>mute') {
+                    this.$.muteText.innerHTML = '<iron-icon icon="av:volume-up"></iron-icon>unmute';
+                    //MUTE CHANNEL
 
-          //MUTE CHANNEL
+                } else if (this.$.muteText.innerHTML == '<iron-icon icon="av:volume-up"></iron-icon>unmute') {
+                    this.$.muteText.innerHTML = '<iron-icon icon="av:volume-off"></iron-icon>mute';
+                    //UNMUTE CHANNEL
 
-        } else if (this.$.muteText.innerHTML == '<iron-icon icon="av:volume-up"></iron-icon>unmute'){
-          this.$.muteText.innerHTML = '<iron-icon icon="av:volume-off"></iron-icon>mute';
-
-
-          //UNMUTE CHANNEL
-
-        }
-      }
-    });
-  </script>
+                }
+            }
+        });
+    </script>
 
 </dom-module>

@@ -8,6 +8,17 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="shared-styles.html">
 
@@ -23,9 +34,38 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <div class="card">
       <div class="circle">1</div>
-      <h1>View One</h1>
-      <p>Ut labores minimum atomorum pro. Laudem tibique ut has.
-      <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
+      <h1>Conference One</h1>
+      <table id = "example" class="table table-bordered">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Attribute</th>
+        <th>Action</th>
+        </tr>
+       </thead>
+    <tbody>
+    <tr>
+      <td scope="row">1</td>
+      <td id = "first-one"></td>
+      <td id = "first-two"></td>
+      <td><button type="button" class="btn btn-success">Join</button></td>
+      </tr>
+    <tr>
+      <td scope="row">2</td>
+      <td id = "second-one">y</td>
+      <td id = "second-two"></td>
+      <td><button type="button" class="btn btn-success">Join</button></td>
+      <!-- <td id = second-three>@fat</td> --> 
+    </tr>
+      <tr>
+        <td scope="row">3</td>
+        <td id = "third-one"></td>
+        <td id = "third-two"></td>
+        <td><button type="button" class="btn btn-danger disabled">Can't Join</button></td>
+      </tr>
+    </tbody>
+  </table>
     </div>
   </template>
 
@@ -33,5 +73,45 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     Polymer({
       is: 'my-view1'
     });
+
+    var text = '{ "status": "success", "data": { "channels": [ { "name": "channel 1", "attribute2": "dummy" }, { "name": "channel 2", "attribute2": "dummy" }, { "name": "channel 3", "attribute2": "dummy" }, { "name": "channel 4", "attribute2": "dummy" } ] } }'; 
+    /* 
+      this is a string of the sample json. put it in the api endpoint on deployment
+    */ 
+    var obj = JSON.parse(text);
+
+// ____for getting the objects_____
+    document.getElementById("first-one").innerHTML =
+    obj.data.channels[0].name; 
+
+
+    document.getElementById("first-two").innerHTML =
+    obj.data.channels[0].attribute2;
+
+
+    document.getElementById("second-one").innerHTML =
+    obj.data.channels[1].name;
+
+    document.getElementById("second-two").innerHTML =
+    obj.data.channels[1].attribute2;
+
+    document.getElementById("third-one").innerHTML =
+    obj.data.channels[2].name;
+
+    document.getElementById("third-two").innerHTML =
+    obj.data.channels[2].attribute2;
   </script>
 </dom-module>
+
+<!---
+JSON: 
+
+{ "status": "success", "data": 
+    { "channels": [ 
+        { "name": "channel 1", "attribute2": "dummy" }, 
+        { "name": "channel 2", "attribute2": "dummy" }, 
+        { "name": "channel 3", "attribute2": "dummy" }, 
+        { "name": "channel 4", "attribute2": "dummy" } ] 
+    } 
+}
+--> 

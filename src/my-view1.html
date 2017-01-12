@@ -19,6 +19,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         padding: 10px;
       }
+	    .button {
+		  display:inline-block;
+		  background:#007CFF;
+		  color:#fff;
+		  padding:10px;
+		  font-size:16px;
+		  text-decoration:none;
+		  outline:none;
+		  border:none;
+		  line-height:1;
+	  }
     </style>
 
     <div class="card">
@@ -26,19 +37,30 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <h1>Select Channels</h1>
       <p>Please select the channel below</p>
       
-      <ul>
-      	<li><a href="/chan1">Channel 01</a></li>
-        <li><a href="/chan2">Channel 02</a></li>
-        <li><a href="/chan3">Channel 03</a></li>
-        <li><a href="/chan4">Channel 04</a></li>
-      </ul>
+	  <a href="/chan1" class="button" on-click="chanone">Channel 01</a>
+	  <a href="/chan1" class="button" on-click="chantwo">Channel 02</a>
+	  <a href="/chan1" class="button" on-click="chanthree">Channel 03</a>
+	  <a href="/chan1" class="button" on-click="chanfour">Channel 04</a>
       
     </div>
   </template>
-
   <script>
     Polymer({
-      is: 'my-view1'
+      is: 'my-view1',
+	  channelname:"",
+      chanone: function() {
+        this.channelname = "Channel 01";
+      },
+	  chantwo: function(){
+		this.channelname = "Channel 02";
+	  },
+	  chanthree: function(){
+		this.channelname = "Channel 03";
+	  },
+	  chanfour: function(){
+		this.channelname = "Channel 04";
+	  }
     });
   </script>
+
 </dom-module>

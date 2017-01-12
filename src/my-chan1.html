@@ -11,7 +11,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="shared-styles.html">
 
-<dom-module id="my-view2">
+<dom-module id="my-chan1">
   <template>
     <style include="shared-styles">
       :host {
@@ -19,19 +19,40 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         padding: 10px;
       }
+	  .button {
+		  display:inline-block;
+		  background:#007CFF;
+		  color:#fff;
+		  padding:10px;
+		  font-size:16px;
+		  text-decoration:none;
+		  outline:none;
+		  border:none;
+		  line-height:1;
+	  }
     </style>
 
     <div class="card">
-      <div class="circle">2</div>
-      <h1>View Two</h1>
-      <p>Ea duis bonorum nec, falli paulo aliquid ei eum.</p>
-      <p>Id nam odio natum malorum, tibique copiosae expetenda mel ea.Detracto suavitate repudiandae no eum. Id adhuc minim soluta nam.Id nam odio natum malorum, tibique copiosae expetenda mel ea.</p>
+      <div class="circle">1</div>
+      <h1>Channel 01</h1>
+      <p><button class="button" on-click="muteunmute">MUTE</button> <a class="button" href="/view1">LEAVE CHANNEL</a></p>
     </div>
   </template>
 
   <script>
     Polymer({
-      is: 'my-view2'
+      is: 'my-chan1',
+	  ismuted: false,
+	  muteunmute: function(e){
+		  var button = Polymer.dom(this.root).querySelector('.button');
+		  if(this.ismuted == false){
+		  	  $(button).text("UNMUTE");
+			  this.ismuted = true;
+		  } else {
+			  $(button).text("MUTE");
+			  this.ismuted = false;
+		  }
+	  }
     });
   </script>
 </dom-module>

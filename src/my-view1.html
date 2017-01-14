@@ -1,13 +1,3 @@
-<!--
-@license
-Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="shared-styles.html">
 
@@ -33,9 +23,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
 
     <div class="card">
-      <div class="circle">1</div>
-      <h1>Select Channels</h1>
-      <p>Please select the channel below</p>
+      <h1>Select Channel</h1>
+      <p>Please select your favourite channel below</p>
       
 	  <a href="/chan1" class="button" on-click="chanone">Channel 01</a>
 	  <a href="/chan1" class="button" on-click="chantwo">Channel 02</a>
@@ -47,19 +36,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <script>
     Polymer({
       is: 'my-view1',
-	  channelname:"",
       chanone: function() {
-        this.channelname = "Channel 01";
+        channelname = "Channel 01";
       },
 	  chantwo: function(){
-		this.channelname = "Channel 02";
+		channelname = "Channel 02";
 	  },
 	  chanthree: function(){
-		this.channelname = "Channel 03";
+		channelname = "Channel 03";
 	  },
 	  chanfour: function(){
-		this.channelname = "Channel 04";
-	  }
+		channelname = "Channel 04";
+	  },
+	
     });
   </script>
 

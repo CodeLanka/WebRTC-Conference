@@ -20,16 +20,22 @@
     </style>
 
     <div class="card">
-      <h1>{{channelname}}</h1>
-      <p><button class="button" on-click="muteunmute">MUTE</button> <a class="button" href="/view1">LEAVE CHANNEL</a></p>
+          <h1 id="channelname"></h1>
+          <p><button class="button" on-click="muteunmute">MUTE</button> <a class="button" href="/view1">LEAVE CHANNEL</a></p>
     </div>
   </template>
 
   <script>
     Polymer({
+	
       is: 'my-chan1',
-	  properties: {
-        channelname: String
+	  ready: function(){
+		var h1 = Polymer.dom(this.root).querySelector('#channelname');
+        $(h1).text(channelname);
+      },
+	  attributeChanged: function(){
+		var h1 = Polymer.dom(this.root).querySelector('#channelname');
+        $(h1).text(channelname);
       },
 	  ismuted: false,
 	  muteunmute: function(e){
